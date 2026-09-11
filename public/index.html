@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> <!--  character/symbol in every language-->
+  <!--metadata is meta that don't show up in the code src but this tell the se what to do-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <!--makes the page width match the actual width of the device-->
+  <!--This one controls how the page scales on different screen sizes, especially mobile phones.-->
+  <title>BLINKNECK </title>
+  <meta name="description" content="Buy, sell, and settle transactions instantly without leaving X, Discord, or Telegram. Powered by Solana Blinks." />
+  <!--the short summary that often shows up under your page's title in Google search results.-->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /> <!--meta tags either, they tell the browser to start connecting to Google Fonts early (preconnect, for speed)-->>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#hero" class="logo">
+        <div class="logo-icon">
+          <img src="assets/logo.png" alt="BLINKNECK Logo" class="logo-img" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">BLINKNECK</span>
+          <span class="logo-tagline">TRUSTLESS · ON-CHAIN · ESCROW</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="#why"      class="nav-link" data-section="why">WHY US</a></li>
+        <li><a href="#security" class="nav-link" data-section="security">SECURITY</a></li>
+        <li><a href="#how"      class="nav-link" data-section="how">HOW IT WORKS</a></li>
+        <li><a href="#cta"      class="nav-link" data-section="cta">GET STARTED</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-corner-text">
+        <span>POWERED</span>
+        <span>BY</span>
+        <span>SOLANA</span>
+      </div>
+      <a href="#hero" class="nav-cta-btn">Launch App</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#why"      class="mobile-link" data-section="why">WHY US</a></li>
+      <li><a href="#security" class="mobile-link" data-section="security">SECURITY</a></li>
+      <li><a href="#how"      class="mobile-link" data-section="how">HOW IT WORKS</a></li>
+      <li><a href="#cta"      class="mobile-link" data-section="cta">GET STARTED</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-noise"></div>
+
+    <!-- Solana chain nodes decoration -->
+    <div class="chain-node node-1"></div>
+    <div class="chain-node node-2"></div>
+    <div class="chain-node node-3"></div>
+    <svg class="chain-lines" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="80" y1="200" x2="400" y2="350" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
+      <line x1="400" y1="350" x2="800" y2="180" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
+      <line x1="800" y1="180" x2="1100" y2="400" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
+      <circle cx="80" cy="200" r="4" fill="rgba(201,168,76,0.25)"/>
+      <circle cx="400" cy="350" r="3" fill="rgba(201,168,76,0.2)"/>
+      <circle cx="800" cy="180" r="4" fill="rgba(201,168,76,0.25)"/>
+      <circle cx="1100" cy="400" r="3" fill="rgba(201,168,76,0.2)"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>SOLANA BLINKS PROTOCOL</span>
+        <span class="eyebrow-dot"></span>
+      </div>
+
+      <h1 class="hero-headline">
+        Trustless Escrow<br>
+        <span class="headline-accent">Built Into Your Feed.</span>
+      </h1>
+
+      <p class="hero-subheadline">
+        Buy, sell, and settle transactions instantly without leaving X, Discord, or Telegram.
+        Powered by Solana Blinks.
+      </p>
+
+      <!-- Value badges -->
+      <div class="hero-badges">
+        <div class="badge">
+          <svg class="badge-icon" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>0% Middleman Bias</span>
+        </div>
+        <div class="badge">
+          <svg class="badge-icon" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          <span>&lt; $0.001 Fee</span>
+        </div>
+        <div class="badge">
+          <svg class="badge-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M10 5l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Instant On-Chain Settlement</span>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <button class="btn-primary" id="ctaPrimary">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 2L18 10L10 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M2 10H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Create a Blink Escrow
+        </button>
+        <a href="#how" class="btn-ghost">See How It Works</a>
+      </div>
+
+      <!-- Live stats strip -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value" data-target="147392">0</span>
+          <span class="stat-label">Escrows Settled</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="0" data-prefix="$" data-suffix="M+" data-decimal="2.4">$0</span>
+          <span class="stat-label">Volume Processed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="0" data-suffix="%" data-decimal="99.97">0</span>
+          <span class="stat-label">Dispute-Free Rate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero visual: animated blink card mockup -->
+    <div class="hero-visual">
+      <div class="blink-mockup">
+        <div class="mockup-header">
+          <div class="mockup-logo-row">
+            <img src="assets/logo.png" alt="BN" class="mockup-logo" />
+            <div>
+              <div class="mockup-brand">BLINKNECK</div>
+              <div class="mockup-verified">✓ Verified Blink</div>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-label">ESCROW TRANSACTION</div>
+          <div class="mockup-amount">2.50 <span>SOL</span></div>
+          <div class="mockup-meta-row">
+            <span class="mockup-meta-key">Recipient</span>
+            <span class="mockup-meta-val">7xKf…3mNp</span>
+          </div>
+          <div class="mockup-meta-row">
+            <span class="mockup-meta-key">Timelock</span>
+            <span class="mockup-meta-val">48 hours</span>
+          </div>
+          <div class="mockup-meta-row">
+            <span class="mockup-meta-key">Fee</span>
+            <span class="mockup-meta-val fee-val">&lt; $0.001</span>
+          </div>
+          <div class="mockup-meta-row">
+            <span class="mockup-meta-key">Network</span>
+            <span class="mockup-meta-val net-val">Solana Mainnet</span>
+          </div>
+        </div>
+        <div class="mockup-footer">
+          <button class="mockup-btn">Sign &amp; Lock Escrow</button>
+        </div>
+        <div class="mockup-platform-badges">
+          <span class="platform-badge">𝕏 Twitter</span>
+          <span class="platform-badge">Discord</span>
+          <span class="platform-badge">Telegram</span>
+        </div>
+      </div>
+      <div class="mockup-glow"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY BLINKNECK ═══════════ -->
+  <section class="why-section" id="why">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">WHY BLINKNECK IS BETTER</div>
+        <h2 class="section-title">Escrow Reimagined for<br><span class="title-accent">the Social Web</span></h2>
+        <p class="section-desc">No third-party sites. No admin keys. No waiting. Just on-chain truth.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <!-- Card 1 -->
+        <div class="why-card reveal">
+          <div class="why-card-accent"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 24h8M28 24h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M4 18h40" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="why-number">01</div>
+          <h3 class="why-title">In-Feed Execution</h3>
+          <p class="why-desc">
+            Unlike traditional escrow services that force users to register on third-party dApps,
+            BLINKNECK turns escrow into a shareable link. Users interact, sign, and pay directly
+            inside their social media feed — zero context switching.
+          </p>
+          <div class="why-compare">
+            <div class="compare-bad">
+              <span class="compare-icon bad">✕</span> Traditional: Leave feed → Register → Upload ID → Wait days
+            </div>
+            <div class="compare-good">
+              <span class="compare-icon good">✓</span> BLINKNECK: Click link → Sign in wallet → Done in seconds
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-card reveal">
+          <div class="why-card-accent"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6L38 14V26C38 33.7 31.7 40.3 24 42C16.3 40.3 10 33.7 10 26V14L24 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M18 24l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="why-number">02</div>
+          <h3 class="why-title">Zero Human Middlemen</h3>
+          <p class="why-desc">
+            Escrows are governed strictly by Solana smart contracts. No biased admins, no manual
+            payout delays, and no support tickets to hold funds hostage. The code is the arbiter —
+            immutable, impartial, instant.
+          </p>
+          <div class="why-compare">
+            <div class="compare-bad">
+              <span class="compare-icon bad">✕</span> Traditional: Admin decides disputes, subject to bias &amp; bribery
+            </div>
+            <div class="compare-good">
+              <span class="compare-icon good">✓</span> BLINKNECK: Smart contract is the only judge — incorruptible
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-card reveal">
+          <div class="why-card-accent"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 24h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M20 20l8 8M28 20l-8 8" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+              <circle cx="24" cy="24" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="why-number">03</div>
+          <h3 class="why-title">Near-Zero Fees &amp; Lightning Speed</h3>
+          <p class="why-desc">
+            Solana&#8217;s high-throughput architecture ensures transactions settle in under a second
+            for fractions of a cent. Say goodbye to heavy traditional escrow commissions that eat
+            into your margins.
+          </p>
+          <div class="why-compare">
+            <div class="compare-bad">
+              <span class="compare-icon bad">✕</span> Traditional: 2–5% commission, 3–10 day clearing
+            </div>
+            <div class="compare-good">
+              <span class="compare-icon good">✓</span> BLINKNECK: &lt;$0.001 fee, &lt;1 second finality
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ANTI-SCAM SECURITY ═══════════ -->
+  <section class="security-section" id="security">
+    <div class="security-bg"></div>
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">ANTI-SCAM PROTECTION ENGINE</div>
+        <h2 class="section-title">Security You Can<br><span class="title-accent">Verify On-Chain</span></h2>
+        <p class="section-desc">Every safeguard is enforced by cryptography — not by trust in a person.</p>
+      </div>
+
+      <div class="security-grid">
+
+        <div class="security-card reveal">
+          <div class="security-badge">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="security-title">Programmable Timelocks</h3>
+          <p class="security-desc">
+            Funds are locked in a non-custodial smart contract. If terms aren&#8217;t met within the
+            agreed window, funds automatically return to the buyer — eliminating ghosting scams.
+          </p>
+          <div class="security-pill">AUTO-REFUND ON EXPIRY</div>
+        </div>
+
+        <div class="security-card reveal">
+          <div class="security-badge">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 16h16M16 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 10l4 2M6 22l4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="security-title">Multi-Sig &amp; Condition Release</h3>
+          <p class="security-desc">
+            Sellers only receive funds when predefined on-chain or cryptographic proof of delivery
+            is validated. No delivery proof &#8212; no payout. Period.
+          </p>
+          <div class="security-pill">PROOF-GATED RELEASE</div>
+        </div>
+
+        <div class="security-card reveal">
+          <div class="security-badge">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4L28 10V18C28 23.5 22.6 28.3 16 30C9.4 28.3 4 23.5 4 18V10L16 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="security-title">Verified Blink Metadata</h3>
+          <p class="security-desc">
+            Every BLINKNECK link displays verified transaction parameters directly in the wallet
+            preview (Phantom, Solflare, Backpack) before signing &#8212; preventing fake link phishing.
+          </p>
+          <div class="security-pill">WALLET-LEVEL VERIFICATION</div>
+        </div>
+
+      </div>
+
+      <!-- Supported wallets strip -->
+      <div class="wallets-strip reveal">
+        <span class="wallets-label">COMPATIBLE WALLETS</span>
+        <div class="wallets-list">
+          <div class="wallet-pill">
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6 10c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Phantom
+          </div>
+          <div class="wallet-pill">
+            <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.2"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Solflare
+          </div>
+          <div class="wallet-pill">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10l6-6 6 6-6 6z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Backpack
+          </div>
+          <div class="wallet-pill wallet-pill-more">+ More</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HOW IT WORKS ═══════════ -->
+  <section class="how-section" id="how">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">3-STEP WORKFLOW</div>
+        <h2 class="section-title">From Link to Settlement<br><span class="title-accent">in Under 60 Seconds</span></h2>
+      </div>
+
+      <div class="steps-track">
+        <!-- Connector line -->
+        <div class="steps-connector">
+          <div class="connector-fill" id="connectorFill"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card reveal" data-step="1">
+          <div class="step-node">
+            <span class="step-num">01</span>
+          </div>
+          <div class="step-body">
+            <div class="step-action">GENERATE</div>
+            <h3 class="step-title">Create Link</h3>
+            <p class="step-desc">
+              Set escrow terms — amount, recipient, conditions, timelock window — and generate
+              your custom BLINKNECK URL in seconds. No account required.
+            </p>
+            <div class="step-tag">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Non-custodial · Your keys, your funds
+            </div>
+          </div>
+          <div class="step-visual">
+            <div class="step-visual-inner">
+              <div class="code-mock">
+                <div class="code-line"><span class="c-key">amount</span><span class="c-op">:</span> <span class="c-val">2.5 SOL</span></div>
+                <div class="code-line"><span class="c-key">recipient</span><span class="c-op">:</span> <span class="c-val">7xKf…3mNp</span></div>
+                <div class="code-line"><span class="c-key">timelock</span><span class="c-op">:</span> <span class="c-val">48h</span></div>
+                <div class="code-line"><span class="c-key">conditions</span><span class="c-op">:</span> <span class="c-val">delivery_hash</span></div>
+                <div class="code-line code-output"><span class="c-label">→ blink.blinkneck.io/</span><span class="c-url">e7f2…</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card reveal" data-step="2">
+          <div class="step-node">
+            <span class="step-num">02</span>
+          </div>
+          <div class="step-body">
+            <div class="step-action">SHARE &amp; SIGN</div>
+            <h3 class="step-title">Post Anywhere</h3>
+            <p class="step-desc">
+              Drop the link in X, Discord, or any chat. The recipient clicks and signs directly
+              within their feed — wallet popup appears inline, no redirects, no phishing risk.
+            </p>
+            <div class="step-tag">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Works inside 𝕏 · Discord · Telegram
+            </div>
+          </div>
+          <div class="step-visual">
+            <div class="step-visual-inner">
+              <div class="social-mock">
+                <div class="social-post">
+                  <div class="post-avatar"></div>
+                  <div class="post-content">
+                    <div class="post-user">@seller_anon</div>
+                    <div class="post-text">Here&#8217;s the escrow link for our deal 🔒</div>
+                    <div class="post-blink-card">
+                      <div class="post-blink-brand">⬡ BLINKNECK</div>
+                      <div class="post-blink-amount">2.50 SOL Escrow</div>
+                      <div class="post-blink-btn">Click to Sign</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card reveal" data-step="3">
+          <div class="step-node">
+            <span class="step-num">03</span>
+          </div>
+          <div class="step-body">
+            <div class="step-action">SETTLE</div>
+            <h3 class="step-title">Auto-Release</h3>
+            <p class="step-desc">
+              The smart contract verifies the transaction proof and releases funds instantly.
+              If conditions aren&#8217;t met, funds auto-return to the buyer. No support ticket needed.
+            </p>
+            <div class="step-tag">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              On-chain finality &lt; 1 second on Solana
+            </div>
+          </div>
+          <div class="step-visual">
+            <div class="step-visual-inner">
+              <div class="settle-mock">
+                <div class="settle-icon">
+                  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 20l5 5 11-11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="settle-label">SETTLED</div>
+                <div class="settle-amount">+2.50 SOL</div>
+                <div class="settle-txid">tx: 4Pq8…Xc2R</div>
+                <div class="settle-time">0.43s · Solana Mainnet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FINAL CTA ═══════════ -->
+  <section class="cta-section" id="cta">
+    <div class="cta-bg"></div>
+    <div class="cta-noise"></div>
+    <div class="section-container cta-inner">
+      <div class="cta-logo">
+        <img src="assets/logo.png" alt="BN" class="cta-logo-img" />
+      </div>
+      <h2 class="cta-title">Ready to Trade<br><span class="title-accent">Without Fear?</span></h2>
+      <p class="cta-sub">Generate your first Blink escrow in under 30 seconds.<br>No account. No KYC. No middleman.</p>
+      <div class="cta-buttons">
+        <button class="btn-primary btn-large" id="ctaBottom">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L18 10L10 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 10H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Create a Blink Escrow
+        </button>
+        <a href="#why" class="btn-ghost">Learn More</a>
+      </div>
+      <div class="cta-footnote">
+        Powered by <strong>Solana</strong> · Non-custodial · Open source
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="BN" class="footer-logo-img" />
+          <div>
+            <div class="footer-brand-name">BLINKNECK</div>
+            <div class="footer-brand-tag">TRUSTLESS · ON-CHAIN · ESCROW</div>
+          </div>
+        </div>
+        <p class="footer-brand-desc">Trustless escrow built directly into social feeds. Powered by Solana Blinks.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <div class="footer-col">
+          <div class="footer-col-title">PROTOCOL</div>
+          <a href="#why"      class="footer-link">Why BLINKNECK</a>
+          <a href="#security" class="footer-link">Security</a>
+          <a href="#how"      class="footer-link">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">RESOURCES</div>
+          <a href="#" class="footer-link">Documentation</a>
+          <a href="#" class="footer-link">Smart Contracts</a>
+          <a href="#" class="footer-link">Audit Reports</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">COMMUNITY</div>
+          <a href="#" class="footer-link">𝕏 Twitter</a>
+          <a href="#" class="footer-link">Discord</a>
+          <a href="#" class="footer-link">Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 BLINKNECK. All rights reserved.</span>
+      <span class="footer-chain">Built on <strong>Solana</strong> · EST. 2026</span>
+    </div>
+  </footer>
+
+  <!-- Modal: Create Escrow -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="escrowModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-header">
+        <img src="assets/logo.png" alt="BN" class="modal-logo" />
+        <div>
+          <h2 class="modal-title">Create Blink Escrow</h2>
+          <p class="modal-subtitle">Set your terms. Share the link. Done.</p>
+        </div>
+      </div>
+      <form class="escrow-form" id="escrowForm" autocomplete="off">
+        <div class="form-group">
+          <label class="form-label" for="escrowAmount">Amount (SOL)</label>
+          <input class="form-input" type="number" id="escrowAmount" placeholder="e.g. 2.5" min="0.001" step="0.001" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="escrowRecipient">Recipient Wallet</label>
+          <input class="form-input" type="text" id="escrowRecipient" placeholder="Solana wallet address" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="escrowTimelock">Timelock Window</label>
+          <select class="form-input form-select" id="escrowTimelock">
+            <option value="1h">1 Hour</option>
+            <option value="6h">6 Hours</option>
+            <option value="24h" selected>24 Hours</option>
+            <option value="48h">48 Hours</option>
+            <option value="7d">7 Days</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="escrowCondition">Release Condition</label>
+          <select class="form-input form-select" id="escrowCondition">
+            <option value="hash">On-Chain Proof Hash</option>
+            <option value="multisig">Multi-Sig Approval</option>
+            <option value="time">Time-Based Auto-Release</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="escrowNote">Note (optional)</label>
+          <input class="form-input" type="text" id="escrowNote" placeholder="e.g. NFT trade, freelance payment…" />
+        </div>
+        <button type="submit" class="btn-primary form-submit">Generate Blink Link</button>
+      </form>
+      <div class="form-result" id="formResult" style="display:none;">
+        <div class="result-label">YOUR BLINK ESCROW LINK</div>
+        <div class="result-url" id="resultUrl"></div>
+        <button class="btn-copy" id="copyBtn">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
