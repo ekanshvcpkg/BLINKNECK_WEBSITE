@@ -1297,7 +1297,7 @@ section, footer, .navbar {
 
 /* STRICT BRUTALIST ENFORCEMENT */
 * {
-  border-radius: 0 !important;
+  border-radius: 0 !important;  /*important ->we are enforcing a strict flat design system, no exceptions*/
   box-shadow: none !important;
 }
 .btn-primary, .nav-cta-btn, .mockup-btn, .btn-ghost, .btn-copy {
