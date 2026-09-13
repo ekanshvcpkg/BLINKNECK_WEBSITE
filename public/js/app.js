@@ -1,4 +1,7 @@
 
+
+
+// IntersectionObserver
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
