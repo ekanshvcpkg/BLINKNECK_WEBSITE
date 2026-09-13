@@ -1185,7 +1185,7 @@ img { display: block; }
   flex-direction: column;
   gap: 10px;
 }
-.toast {
+.toast { 
   background: var(--clr-surface);
   border: 1px solid var(--clr-border-soft);
   border-left: 3px solid var(--clr-text);

@@ -1,14 +1,17 @@
+// ! Dbg
+const Dlog = (mint) =>  console.log(`DLOG-${mint}`);
 
 
-
-// IntersectionObserver
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+// $$ this [...]this say that make them turn into array of js
 
-function showToast(message, duration = 3500) {
+
+// !the popup message
+function showToast(message, duration = 3500) { 
   const container = $('#toastContainer');
   const toast = document.createElement('div');
-  toast.className = 'toast';
+  toast.className = 'toast'; // css style to toast
   toast.textContent = message;
   container.appendChild(toast);
   setTimeout(() => {
@@ -20,7 +23,9 @@ function showToast(message, duration = 3500) {
 /!* ── NAVBAR ──────────────────────────────────────────────────── */
 function initNavbar() {
   const navbar = $('#navbar'); 
+   Dlog(typeof(navbar));
   const navLinks = $$('.nav-link');
+  Dlog(typeof(navLinks));
   const mobileLinks = $$('.mobile-link');
   const sections = $$('section[id]');
 
@@ -261,6 +266,7 @@ function initMockupBtn() {
 
 /!* ── BOOT ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // showToast('TestBasicV1');
   initNavbar();
   initHamburger();
   initReveal();
