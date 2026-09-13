@@ -1,9 +1,4 @@
-/**
- * BLINKNECK — Landing Page JS
- * Navbar, scroll reveal, stats counter, step tracker, modal, form, toasts
- */
 
-/* ── UTILS ──────────────────────────────────────────────────── */
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
@@ -19,9 +14,9 @@ function showToast(message, duration = 3500) {
   }, duration);
 }
 
-/* ── NAVBAR ──────────────────────────────────────────────────── */
+/!* ── NAVBAR ──────────────────────────────────────────────────── */
 function initNavbar() {
-  const navbar = $('#navbar');
+  const navbar = $('#navbar'); 
   const navLinks = $$('.nav-link');
   const mobileLinks = $$('.mobile-link');
   const sections = $$('section[id]');
@@ -29,7 +24,7 @@ function initNavbar() {
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    // Active link tracking
+    //! Active link tracking
     let current = '';
     sections.forEach(sec => {
       if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
@@ -42,7 +37,7 @@ function initNavbar() {
     });
   }, { passive: true });
 
-  // Smooth scroll
+  //! Smooth scroll
   $$('[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const target = link.getAttribute('href');
@@ -59,7 +54,7 @@ function initNavbar() {
   });
 }
 
-/* ── HAMBURGER ───────────────────────────────────────────────── */
+/!* ── HAMBURGER ───────────────────────────────────────────────── */
 function initHamburger() {
   const btn = $('#hamburger');
   const menu = $('#mobileMenu');
@@ -75,7 +70,7 @@ function initHamburger() {
   });
 }
 
-/* ── SCROLL REVEAL ───────────────────────────────────────────── */
+/!* ── SCROLL REVEAL ───────────────────────────────────────────── */
 function initReveal() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
@@ -94,7 +89,7 @@ function initReveal() {
   $$('.reveal').forEach(el => observer.observe(el));
 }
 
-/* ── STAT COUNTERS ───────────────────────────────────────────── */
+/!* ── STAT COUNTERS ───────────────────────────────────────────── */
 function animateCounter(el) {
   // Handle decimal/custom cases
   const decimal = el.dataset.decimal;
@@ -102,7 +97,7 @@ function animateCounter(el) {
   const suffix = el.dataset.suffix || '';
 
   if (decimal) {
-    // Animate to the decimal number
+    //! Animate to the decimal number
     const target = parseFloat(decimal);
     const numDecimals = decimal.includes('.') ? decimal.split('.')[1].length : 0;
     const duration = 2000;
@@ -149,7 +144,7 @@ function initStats() {
   statEls.forEach(el => observer.observe(el));
 }
 
-/* ── STEPS TRACKER (connector fill + active node) ───────────── */
+/!* ── STEPS TRACKER (connector fill + active node) ───────────── */
 function initSteps() {
   const steps = $$('.step-card');
   const fill = $('#connectorFill');
@@ -170,7 +165,7 @@ function initSteps() {
   steps.forEach(s => observer.observe(s));
 }
 
-/* ── MODAL ───────────────────────────────────────────────────── */
+/!* ── MODAL ───────────────────────────────────────────────────── */
 function initModal() {
   const overlay = $('#modalOverlay');
   const closeBtn = $('#modalClose');
@@ -184,14 +179,14 @@ function initModal() {
     document.body.style.overflow = '';
   }
 
-  // Trigger buttons
+  //! Trigger buttons
   $$('#ctaPrimary, #ctaBottom').forEach(btn => btn && btn.addEventListener('click', open));
   closeBtn && closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 }
 
-/* ── ESCROW FORM ─────────────────────────────────────────────── */
+/!* ── ESCROW FORM ─────────────────────────────────────────────── */
 function initEscrowForm() {
   const form = $('#escrowForm');
   const resultArea = $('#formResult');
@@ -213,7 +208,8 @@ function initEscrowForm() {
     submitBtn.textContent = 'Generating…';
     submitBtn.disabled = true;
 
-    try {
+    try { // handling errors
+         // try to do something risky, like calling a server
       const res = await fetch('/api/escrow/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -225,8 +221,10 @@ function initEscrowForm() {
       resultArea.style.display = 'block';
       showToast('✦ Blink Escrow generated successfully');
     } catch {
+        // this runs only if it fails
       showToast('Error generating link. Please try again.');
     } finally {
+        // this always runs, whether it failed or notx
       submitBtn.textContent = 'Generate Blink Link';
       submitBtn.disabled = false;
     }
@@ -243,7 +241,7 @@ function initEscrowForm() {
   });
 }
 
-/* ── MOCKUP BUTTON (visual only) ────────────────────────────── */
+/!* ── MOCKUP BUTTON (visual only) ────────────────────────────── */
 function initMockupBtn() {
   const btn = $('.mockup-btn');
   if (!btn) return;
@@ -258,7 +256,7 @@ function initMockupBtn() {
   });
 }
 
-/* ── BOOT ────────────────────────────────────────────────────── */
+/!* ── BOOT ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initHamburger();
