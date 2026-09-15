@@ -1,3 +1,5 @@
+const { memo } = require("react");
+
 // ! Dbg
 const Dlog = (mint) =>  console.log(`DLOG-${mint}`);
 
@@ -13,46 +15,51 @@ function showToast(message, duration = 3500) {
   const toast = document.createElement('div');
   toast.className = 'toast'; // css style to toast
   toast.textContent = message;
-  container.appendChild(toast);
+  container.appendChild(toast); // inserted into the DOM tree
   setTimeout(() => {
     toast.classList.add('out');
-    toast.addEventListener('animationend', () => toast.remove(), { once: true });
-  }, duration);
+    toast.addEventListener('animationend', () => toast.remove(), { once: true }); // once true maean if it is done remove it ok so it don't use any memory
+  }, duration); //animationend -> built-in event
 }
 
 /!* ── NAVBAR ──────────────────────────────────────────────────── */
 function initNavbar() {
   const navbar = $('#navbar'); 
-   Dlog(typeof(navbar));
+  Dlog(typeof(navbar));
   const navLinks = $$('.nav-link');
   Dlog(typeof(navLinks));
   const mobileLinks = $$('.mobile-link');
-  const sections = $$('section[id]');
+  const sections = $$('section[id]'); // Attribute Selector
+
+  // window this is inbuild obj given by brow
 
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
-
+// If you've scrolled past 60 pixels
     //! Active link tracking
     let current = '';
     sections.forEach(sec => {
       if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+      //140
+      // offsetTop -> 
     });
     navLinks.forEach(link => {
       link.classList.toggle('active', link.dataset.section === current);
+      // data-section in html for js it become -> section
     });
     mobileLinks.forEach(link => {
       link.classList.toggle('active', link.dataset.section === current);
     });
-  }, { passive: true });
+  }, { passive: true } ); // i will not try to cancel it telling this to the brow
 
   //! Smooth scroll
-  $$('[href^="#"]').forEach(link => {
+  $$('[href^="#"]').forEach(link => { // [href^="#"] Go find every link on this page, but ONLY give me the ones where the destination starts with a hashtag.
     link.addEventListener('click', e => {
       const target = link.getAttribute('href');
-      if (target === '#') return;
-      const el = $(target);
+      if (target === '#') return; // for dummy button
+      const el = $(target); // find the id that have this #in the html 
       if (el) {
-        e.preventDefault();
+        e.preventDefault(); // stop the brow default thing to auto tele
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         // close mobile menu if open
         $('#hamburger').classList.remove('open');
@@ -62,6 +69,7 @@ function initNavbar() {
   });
 }
 
+
 /!* ── HAMBURGER ───────────────────────────────────────────────── */
 function initHamburger() {
   const btn = $('#hamburger');
@@ -69,14 +77,28 @@ function initHamburger() {
   btn.addEventListener('click', () => {
     const open = btn.classList.toggle('open');
     menu.classList.toggle('open', open);
+    // if (open) {  // true 
+    //   menu.classList.add('open');
+
+    // }else {  // false
+    //   menu.classList.remove('open');
+
+    // }
   });
   document.addEventListener('click', e => {
     if (!btn.contains(e.target) && !menu.contains(e.target)) {
+
       btn.classList.remove('open');
       menu.classList.remove('open');
     }
   });
 }
+
+
+
+
+
+
 
 /!* ── SCROLL REVEAL ───────────────────────────────────────────── */
 function initReveal() {
@@ -92,10 +114,13 @@ function initReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.1 }); // trigger once 10% of the element is visible.
 
   $$('.reveal').forEach(el => observer.observe(el));
 }
+
+
+
 
 /!* ── STAT COUNTERS ───────────────────────────────────────────── */
 function animateCounter(el) {
@@ -266,7 +291,7 @@ function initMockupBtn() {
 
 /!* ── BOOT ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  // showToast('TestBasicV1');
+  showToast('TestBasicV1');
   initNavbar();
   initHamburger();
   initReveal();
