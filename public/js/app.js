@@ -1,4 +1,3 @@
-const { memo } = require("react");
 
 // ! Dbg
 const Dlog = (mint) =>  console.log(`DLOG-${mint}`);
@@ -101,9 +100,11 @@ function initHamburger() {
 
 
 /!* ── SCROLL REVEAL ───────────────────────────────────────────── */
-function initReveal() {
-  const observer = new IntersectionObserver(entries => {
+function initReveal() { //x nodo!main
+  const observer = new IntersectionObserver(entries => { //IntersectionObserver build in of brow
+    // ()
     entries.forEach((entry, i) => {
+
       if (entry.isIntersecting) {
         // Stagger sibling reveals
         const siblings = [...entry.target.parentElement.children].filter(el => el.classList.contains('reveal'));
@@ -111,7 +112,7 @@ function initReveal() {
         setTimeout(() => {
           entry.target.classList.add('visible');
         }, idx * 100);
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); // stops watching that element once it's revealed — since it only needs to happen once, this saves performance.
       }
     });
   }, { threshold: 0.1 }); // trigger once 10% of the element is visible.
