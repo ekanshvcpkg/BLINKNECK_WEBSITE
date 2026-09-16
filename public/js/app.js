@@ -301,4 +301,131 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initEscrowForm();
   initMockupBtn();
+  initAuth();
 });
+
+/* ── AUTHENTICATION ──────────────────────────────────────────── */
+function initAuth() {
+  const authBtn = $('#authBtn'); // Navbar button
+  const overlay = $('#authModalOverlay');
+  const closeBtn = $('#authModalClose');
+  const form = $('#authForm');
+  const toggleBtn = $('#authToggleBtn');
+  
+  const title = $('#authModalTitle');
+  const subtitle = $('#authModalSubtitle');
+  const submitBtn = $('#authSubmitBtn');
+  const toggleText = $('#authToggleText');
+  const emailInput = $('#authEmail');
+  const passwordInput = $('#authPassword');
+
+  let isLoginMode = false;
+
+  // Check if already logged in on page load
+  const savedEmail = localStorage.getItem('blinkneck_email');
+  if (savedEmail && authBtn) {
+    authBtn.textContent = 'LOGOUT ' + savedEmail.toUpperCase();
+  }
+
+  if (!authBtn || !overlay) return;
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  authBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // If already logged in, this button acts as a logout
+    if (localStorage.getItem('blinkneck_token')) {
+      localStorage.removeItem('blinkneck_token');
+      localStorage.removeItem('blinkneck_email');
+      authBtn.textContent = 'SIGNUP / LOGIN';
+      showToast('Logged out successfully');
+      return;
+    }
+    
+    openModal();
+  });
+
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+  // Toggle between Signup and Login mode
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    isLoginMode = !isLoginMode;
+    
+    if (isLoginMode) {
+      title.textContent = 'Log In';
+      subtitle.textContent = 'Welcome back. Enter your credentials.';
+      submitBtn.textContent = 'Log In';
+      toggleText.textContent = 'Need an account?';
+      toggleBtn.textContent = 'Sign Up';
+    } else {
+      title.textContent = 'Sign Up';
+      subtitle.textContent = 'Create an account to manage your escrows.';
+      submitBtn.textContent = 'Sign Up';
+      toggleText.textContent = 'Already have an account?';
+      toggleBtn.textContent = 'Log In';
+    }
+  });
+
+  // Handle Form Submission
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    
+    if (!email || !password) {
+      showToast('Email and password are required!');
+      return;
+    }
+
+    const endpoint = isLoginMode ? '/api/auth/login' : '/api/auth/signup';
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await res.json();
+
+      if (!res.ok) {
+        showToast(data.error || 'Something went wrong');
+      } else {
+        showToast(data.message);
+        
+        // If logged in successfully, save token and update UI
+        if (isLoginMode && data.token) {
+          localStorage.setItem('blinkneck_token', data.token);
+          localStorage.setItem('blinkneck_email', data.email);
+          authBtn.textContent = 'LOGOUT ' + data.email.toUpperCase();
+          closeModal();
+        } 
+        // If signed up successfully, auto-switch to login mode
+        else if (!isLoginMode) {
+          toggleBtn.click(); // switch to login mode visually
+          passwordInput.value = ''; // clear password
+        }
+      }
+    } catch (err) {
+      showToast('Network error. Please try again.');
+    } finally {
+      submitBtn.textContent = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  });
+}

@@ -42,7 +42,7 @@
         <span>BY</span>
         <span>SOLANA</span>
       </div>
-      <a href="#hero" class="nav-cta-btn">MAKE ACCOUNT</a>
+      <a href="#" class="nav-cta-btn" id="authBtn">SIGNUP / LOGIN</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -598,6 +598,35 @@
         <div class="result-label">YOUR BLINK ESCROW LINK</div>
         <div class="result-url" id="resultUrl"></div>
         <button class="btn-copy" id="copyBtn">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal: Auth -->
+  <div class="modal-overlay" id="authModalOverlay">
+    <div class="modal" id="authModal">
+      <button class="modal-close" id="authModalClose">✕</button>
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="authModalTitle">Sign Up</h2>
+          <p class="modal-subtitle" id="authModalSubtitle">Create an account to manage your escrows.</p>
+        </div>
+      </div>
+      <form class="escrow-form" id="authForm" autocomplete="off">
+        <div class="form-group">
+          <label class="form-label" for="authEmail">Email</label>
+          <input class="form-input" type="email" id="authEmail" placeholder="Enter email address" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="authPassword">Password</label>
+          <input class="form-input" type="password" id="authPassword" placeholder="Enter password" required />
+        </div>
+        <button type="submit" class="btn-primary form-submit" id="authSubmitBtn">Sign Up</button>
+      </form>
+      <div style="margin-top: 15px; text-align: center; font-size: 12px; color: var(--clr-text-muted);">
+        <span id="authToggleText">Already have an account?</span> 
+        <a href="#" id="authToggleBtn" style="color: var(--clr-text); text-decoration: underline;">Log In</a>
       </div>
     </div>
   </div>

@@ -1,13 +1,40 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const crypto = require('crypto');
+const mongoose = require('mongoose');
+
+// Import our new authentication routes and middleware
+const authRoutes = require('./routes/auth');
+const verifyToken = require('./middleware/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Connect to MongoDB using Mongoose
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('✅ Connected to MongoDB Atlas'))
+.catch(err => console.error('❌ MongoDB Connection Error:', err));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Mount the authentication routes
+// All routes in auth.js will start with /api/auth
+// Example: /api/auth/signup, /api/auth/login
+app.use('/api/auth', authRoutes);
+
+// Protect an example route with our verifyToken middleware
+// Only logged-in users with a valid token can access this!
+app.get('/api/protected-data', verifyToken, (req, res) => {
+  res.json({ 
+    message: 'Welcome to the secret area!',
+    user: req.user // This was attached by the middleware
+  });
+});
 
 /* ── API: Create Escrow Blink ───────────────────────────────── */
 app.post('/api/escrow/create', (req, res) => {
